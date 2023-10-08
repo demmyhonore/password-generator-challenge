@@ -1,0 +1,15 @@
+*.sketch
+*.fig
+*.xd
+
+node_modules
+.DS_Store
+.prettierignore
+/.svelte-kit
+/build
+/package
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
