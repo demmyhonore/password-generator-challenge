@@ -1,6 +1,7 @@
 <script lang="ts">
-	import CopyIcon from '../components/icons/copy.svelte';
-	import IconButton from '../components/icon-button.svelte';
+	import Checkbox from '$lib/components/checkbox.svelte';
+	import CopyButton from '$lib/components/copy-button.svelte';
+	import Slider from '$lib/components/slider.svelte';
 
 	let password: string = 'P4$5W0rD!';
 </script>
@@ -10,35 +11,25 @@
 		<h1 class="password-generator__heading">Password Generator</h1>
 		<div class="password-generator__copy">
 			<p class="password-generator__copy__content">{password}</p>
-			<IconButton label="Copy">
-				<CopyIcon />
-			</IconButton>
+			<CopyButton />
 		</div>
 		<form class="password-generator__controls">
 			<fieldset>
 				<legend class="visually-hidden">Choose your password options</legend>
-				<div class="password-generator__controls__range">
-					<label for="length">
-						<span>Character Length</span>
-						<span>10</span>
-					</label>
-					<input type="range" id="length" name="length" min="0" max="11" />
+				<div class="password-generator__controls__slider">
+					<Slider />
 				</div>
 				<div class="password-generator__controls__checkbox">
-					<input type="checkbox" id="uppercase" name="uppercase" checked />
-					<label for="uppercase">Include Uppercase Letters</label>
+					<Checkbox id="uppercase" label="Include Uppercase Letters" checked={false} />
 				</div>
 				<div class="password-generator__controls__checkbox">
-					<input type="checkbox" id="lowercase" name="lowercase" />
-					<label for="lowercase">Include Lowercase Letters</label>
+					<Checkbox id="lowercase" label="Include Lowercase Letters" checked={false} />
 				</div>
 				<div class="password-generator__controls__checkbox">
-					<input type="checkbox" id="numbers" name="numbers" />
-					<label for="numbers"> Include Numbers</label>
+					<Checkbox id="numbers" label="Include Numbers" checked={false} />
 				</div>
 				<div class="password-generator__controls__checkbox">
-					<input type="checkbox" id="symbols" name="symbols" />
-					<label for="symbols"> Include Symbols</label>
+					<Checkbox id="symbols" label="Include Symbols" checked={false} />
 				</div>
 			</fieldset>
 			<p>Strength medium</p>
@@ -59,6 +50,21 @@
 		gap: 1rem;
 	}
 
+	.password-generator__controls {
+		background-color: var(--clr-dark-grey);
+		padding: 1rem 2rem;
+		display: grid;
+		gap: 1rem;
+	}
+
+	.password-generator__controls__slider {
+		margin-bottom: 1.5rem;
+	}
+
+	.password-generator__controls__checkbox {
+		margin-bottom: 1rem;
+	}
+
 	.password-generator__copy {
 		background-color: var(--clr-dark-grey);
 		padding: 1rem 2rem;
@@ -77,17 +83,6 @@
 		color: var(--clr-grey);
 		font-size: 1.125rem;
 		text-align: center;
-	}
-
-	.password-generator__controls {
-		background-color: var(--clr-dark-grey);
-		padding: 1.2rem 1.5rem;
-	}
-
-	.password-generator__controls__range > label {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 	}
 
 	.visually-hidden {

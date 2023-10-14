@@ -7,7 +7,7 @@
 		font-weight: 100 1000;
 	}
 
-	/* Reset */
+	/* Resets */
 	:global(*, *::before, *::after) {
 		box-sizing: border-box;
 	}
@@ -48,7 +48,7 @@
 		--ff-base: 'JetBrains Mono', monospace;
 	}
 
-	/* Styles */
+	/* Global styling */
 	:global(body) {
 		height: 100vh;
 		background-color: var(--clr-very-dark-grey);
@@ -57,10 +57,6 @@
 		color: var(--clr-almost-white);
 		display: grid;
 		place-items: center;
-	}
-
-	:global(body) {
-		display: grid;
-		place-items: center;
+		padding: 1rem;
 	}
 </style>

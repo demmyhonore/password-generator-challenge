@@ -1,0 +1,63 @@
+<script lang="ts">
+	export let checked: boolean = false;
+	export let id: string;
+	export let label: string;
+</script>
+
+<div class="checkbox">
+	<input type="checkbox" {id} name={id} {checked} />
+	<label class="label" for={id}>{label}</label>
+</div>
+
+<style>
+	.checkbox {
+		position: relative;
+	}
+
+	.checkbox label {
+		display: block;
+		padding-left: 40px;
+	}
+
+	.checkbox input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		opacity: 0;
+	}
+
+	.checkbox input + label::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		margin-top: 4px;
+		border: 2px solid var(--clr-almost-white);
+		content: '';
+	}
+
+	.checkbox input + label::after {
+		position: absolute;
+		top: 5px;
+		left: 3px;
+		height: 12px;
+		width: 14px;
+		margin-top: 4px;
+		background-image: url('/icons/check.svg');
+		background-repeat: no-repeat;
+		opacity: 0;
+		content: '';
+	}
+
+	.checkbox input:checked + label::after {
+		opacity: 1;
+	}
+
+	.checkbox input:checked + label::before {
+		border: 2px solid var(--clr-neon-green);
+		background-color: var(--clr-neon-green);
+	}
+</style>
