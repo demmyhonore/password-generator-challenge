@@ -46,6 +46,8 @@
 		--clr-white: hsl(0, 0%, 100%);
 		--clr-yellow: hsl(42, 91%, 68%);
 		--ff-base: 'JetBrains Mono', monospace;
+		--fw-base: 500;
+		--fw-bold: 700;
 	}
 
 	/* Global styling */
@@ -54,6 +56,7 @@
 		background-color: var(--clr-very-dark-grey);
 		font-family: var(--ff-base);
 		font-size: 1.125rem;
+		font-weight: var(--fw-base);
 		color: var(--clr-almost-white);
 		display: grid;
 		place-items: center;

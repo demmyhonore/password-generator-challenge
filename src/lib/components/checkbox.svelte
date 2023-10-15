@@ -46,7 +46,7 @@
 		height: 12px;
 		width: 14px;
 		margin-top: 4px;
-		background-image: url('/icons/check.svg');
+		background-image: url('data:image/svg+xml,<svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"><path stroke="%23000" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" /></svg>');
 		background-repeat: no-repeat;
 		opacity: 0;
 		content: '';

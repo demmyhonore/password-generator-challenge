@@ -75,8 +75,8 @@
 	}
 
 	.slider__label__character-length {
-		font-size: 2rem;
-		font-weight: 700;
+		font-size: 1.75rem;
+		font-weight: var(--fw-bold);
 		color: var(--clr-neon-green);
 	}
 
