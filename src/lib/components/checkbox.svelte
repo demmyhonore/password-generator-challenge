@@ -29,23 +29,23 @@
 	}
 
 	.checkbox input + label::before {
+		margin-top: 4px;
 		position: absolute;
 		top: 0;
 		left: 0;
 		height: 20px;
 		width: 20px;
-		margin-top: 4px;
 		border: 2px solid var(--clr-almost-white);
 		content: '';
 	}
 
 	.checkbox input + label::after {
+		margin-top: 4px;
 		position: absolute;
 		top: 5px;
 		left: 3px;
 		height: 12px;
 		width: 14px;
-		margin-top: 4px;
 		background-image: url('data:image/svg+xml,<svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"><path stroke="%23000" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" /></svg>');
 		background-repeat: no-repeat;
 		opacity: 0;

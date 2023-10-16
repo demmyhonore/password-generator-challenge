@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import CopyIcon from '$lib/components/icons/copy.svelte';
 </script>
 
@@ -20,10 +20,6 @@
 
 	button:hover {
 		color: var(--clr-white);
-	}
-
-	svg {
-		fill: currentColor;
 	}
 
 	.visually-hidden {

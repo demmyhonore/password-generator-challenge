@@ -2,23 +2,23 @@
 	export let min: number = 0;
 	export let max: number = 11;
 
-	let value = 11;
-	$: progress = (value / max) * 100;
+	let current = 11;
+	$: progress = (current / max) * 100;
 	$: background = `linear-gradient(to right, var(--clr-neon-green) ${progress}%, var(--clr-very-dark-grey) ${progress}%)`;
 </script>
 
 <div>
-	<label class="slider__label" for="character-length">
-		<span>Character Length</span>
-		<span class="slider__label__character-length">{value}</span>
+	<label class="character-length-slider__label" for="character-length-slider">
+		<span>Character length</span>
+		<span class="character-length-slider__label__character-length">{current}</span>
 	</label>
 	<input
-		class="slider__input"
+		class="character-length-slider__input"
 		type="range"
-		bind:value
+		bind:value={current}
 		style:background
-		id="character-length"
-		name="character-length"
+		id="character-length-slider"
+		name="character-length-slider"
 		{min}
 		{max}
 	/>
@@ -26,27 +26,22 @@
 
 <style>
 	input[type='range'] {
-		/* Reset, then styling */
 		-webkit-appearance: none;
 		appearance: none;
-
 		width: 100%;
+		height: 8px;
 		cursor: pointer;
 		outline: none;
-		height: 8px;
 	}
 
-	/* Webkit */
 	input[type='range']::-webkit-slider-thumb {
-		/* Reset, then styling */
 		-webkit-appearance: none;
 		appearance: none;
-
 		height: 28px;
 		width: 28px;
-		background-color: var(--clr-almost-white);
-		border-radius: 50%;
 		border: none;
+		border-radius: 50%;
+		background-color: var(--clr-almost-white);
 	}
 
 	input[type='range']::-webkit-slider-thumb:hover {
@@ -54,13 +49,12 @@
 		background-color: var(--clr-very-dark-grey);
 	}
 
-	/* Firefox */
 	input[type='range']::-moz-range-thumb {
 		height: 28px;
 		width: 28px;
 		background-color: var(--clr-almost-white);
-		border-radius: 50%;
 		border: none;
+		border-radius: 50%;
 	}
 
 	input[type='range']::-moz-range-thumb:hover {
@@ -68,19 +62,23 @@
 		background-color: var(--clr-very-dark-grey);
 	}
 
-	.slider__label {
+	.character-length-slider__label {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	.slider__label__character-length {
-		font-size: 1.75rem;
+	.character-length-slider__label__character-length {
+		font-size: var(--fs-heading-medium);
 		font-weight: var(--fw-bold);
 		color: var(--clr-neon-green);
+
+		@media (min-width: 376px) {
+			font-size: var(--fs-heading-large);
+		}
 	}
 
-	.slider__input {
+	.character-length-slider__input {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}

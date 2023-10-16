@@ -34,8 +34,9 @@
 		overflow-wrap: break-word;
 	}
 
-	/* Custom properties */
+	/* Variables */
 	:global(:root) {
+		/* colors */
 		--clr-almost-white: hsl(252, 11%, 91%);
 		--clr-dark-grey: hsl(248, 10%, 15%);
 		--clr-grey: hsl(251, 9%, 53%);
@@ -45,17 +46,22 @@
 		--clr-very-dark-grey: hsl(248, 15%, 11%);
 		--clr-white: hsl(0, 0%, 100%);
 		--clr-yellow: hsl(42, 91%, 68%);
+		/* font */
 		--ff-base: 'JetBrains Mono', monospace;
+		--fs-base: 1.125rem;
+		--fs-heading-medium: 1.5rem;
+		--fs-heading-large: 2rem;
 		--fw-base: 500;
 		--fw-bold: 700;
+		--fw-bolder: 800;
 	}
 
-	/* Global styling */
+	/* Global */
 	:global(body) {
 		height: 100vh;
 		background-color: var(--clr-very-dark-grey);
 		font-family: var(--ff-base);
-		font-size: 1.125rem;
+		font-size: var(--fs-base);
 		font-weight: var(--fw-base);
 		color: var(--clr-almost-white);
 		display: grid;
