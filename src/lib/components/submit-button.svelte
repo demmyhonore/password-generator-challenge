@@ -1,18 +1,12 @@
 <script lang="ts">
 	import ArrowRightIcon from '$lib/components/icons/arrow-right.svelte';
 
-	type MaybeIcon = keyof typeof icons | null;
-	const icons = {
-		'arrow-right': ArrowRightIcon
-	};
-
-	export let label: string = 'Generate';
-	export let icon: MaybeIcon = null;
+	export let label: string;
 </script>
 
-<button>
+<button type="submit">
 	{label}
-	<svelte:component this={icon ? icons[icon] : null} />
+	<ArrowRightIcon />
 </button>
 
 <style>

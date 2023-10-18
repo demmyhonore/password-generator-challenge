@@ -1,25 +1,30 @@
 <script lang="ts">
+	export let value = 11;
 	export let min: number = 0;
-	export let max: number = 11;
+	/* 
+	Min is only used for feedback to the user.
+	Custom input range css does not handle min well. 
+	*/
 
-	let current = 11;
-	$: progress = (current / max) * 100;
+	export let max: number;
+	export let label: string;
+
+	$: progress = (value / max) * 100;
 	$: background = `linear-gradient(to right, var(--clr-neon-green) ${progress}%, var(--clr-very-dark-grey) ${progress}%)`;
 </script>
 
 <div>
-	<label class="character-length-slider__label" for="character-length-slider">
-		<span>Character length</span>
-		<span class="character-length-slider__label__character-length">{current}</span>
+	<label for="option-slider" class="option-slider__label">
+		<span>{label}</span>
+		<span class="option-slider__label__value">{Math.max(value, min)}</span>
 	</label>
 	<input
-		class="character-length-slider__input"
+		id="option-slider"
+		class="option-slider__input"
 		type="range"
-		bind:value={current}
+		bind:value
 		style:background
-		id="character-length-slider"
-		name="character-length-slider"
-		{min}
+		min={0}
 		{max}
 	/>
 </div>
@@ -62,13 +67,18 @@
 		background-color: var(--clr-very-dark-grey);
 	}
 
-	.character-length-slider__label {
+	.option-slider__input {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.option-slider__label {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	.character-length-slider__label__character-length {
+	.option-slider__label__value {
 		font-size: var(--fs-heading-medium);
 		font-weight: var(--fw-bold);
 		color: var(--clr-neon-green);
@@ -76,10 +86,5 @@
 		@media (min-width: 376px) {
 			font-size: var(--fs-heading-large);
 		}
-	}
-
-	.character-length-slider__input {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
 	}
 </style>

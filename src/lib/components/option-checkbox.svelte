@@ -1,12 +1,12 @@
 <script lang="ts">
-	export let checked: boolean = false;
 	export let id: string;
+	export let checked: boolean = false;
 	export let label: string;
 </script>
 
 <div class="checkbox">
-	<input type="checkbox" {id} name={id} {checked} />
-	<label class="label" for={id}>{label}</label>
+	<input type="checkbox" {id} bind:checked />
+	<label for={id}>{label}</label>
 </div>
 
 <style>
