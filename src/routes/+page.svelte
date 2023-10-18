@@ -22,10 +22,12 @@
 		[OptionEnum.Number]: false,
 		[OptionEnum.Symbol]: false
 	};
-	$: hasOptionChecked = Object.values(passwordOptionState).some((option) => option === true);
+	$: optionCheckedCount = Object.values(passwordOptionState).filter(
+		(option) => option === true
+	).length;
 
 	function handleSubmit() {
-		hasOptionChecked ? generate(passwordChars, passwordOptionState) : reset();
+		optionCheckedCount > 0 ? generate(passwordChars, passwordOptionState) : reset();
 	}
 
 	function generate(chars: number, options: OptionStateType) {
@@ -97,7 +99,7 @@
 					/>
 				</div>
 			</div>
-			<OptionFeedback slot="feedback" />
+			<OptionFeedback slot="feedback" {passwordChars} {optionCheckedCount} />
 			<SubmitButton slot="generate" label="Generate" />
 		</OptionsBlock>
 	</article>
@@ -106,6 +108,7 @@
 <style>
 	main {
 		width: 100%;
+		height: 100%;
 		display: grid;
 		place-items: center;
 		padding: 1rem;
