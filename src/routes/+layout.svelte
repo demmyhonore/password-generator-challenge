@@ -55,6 +55,9 @@
 		--fw-base: 500;
 		--fw-bold: 700;
 		--fw-bolder: 800;
+
+		--s-small: 0.5rem;
+		--s-base: 1rem;
 	}
 
 	/* Global */
