@@ -1,11 +1,12 @@
 <script lang="ts">
 	export let id: string;
-	export let checked: boolean = false;
 	export let label: string;
+	export let checked: boolean;
+	export let onClick: () => void;
 </script>
 
 <div class="checkbox">
-	<input type="checkbox" {id} bind:checked />
+	<input type="checkbox" on:click={onClick} {id} {checked} />
 	<label for={id}>{label}</label>
 </div>
 
@@ -35,7 +36,7 @@
 		left: 0;
 		height: 20px;
 		width: 20px;
-		border: 2px solid var(--clr-almost-white);
+		border: 2px solid var(--color-almostWhite);
 		content: '';
 	}
 
@@ -57,7 +58,7 @@
 	}
 
 	.checkbox input:checked + label::before {
-		border: 2px solid var(--clr-neon-green);
-		background-color: var(--clr-neon-green);
+		border: 2px solid var(--color-neonGreen);
+		background-color: var(--color-neonGreen);
 	}
 </style>

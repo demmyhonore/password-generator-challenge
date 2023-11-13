@@ -1,0 +1,26 @@
+:root {
+	--color-almostWhite: hsl(252, 11%, 91%);
+	--color-darkGrey: hsl(248, 10%, 15%);
+	--color-grey: hsl(251, 9%, 53%);
+	--color-neonGreen: hsl(127, 100%, 82%);
+	--color-orange: hsl(13, 95%, 66%);
+	--color-red: hsl(0, 91%, 63%);
+	--color-veryDarkGrey: hsl(248, 15%, 11%);
+	--color-white: hsl(0, 0%, 100%);
+	--color-yellow: hsl(42, 91%, 68%);
+
+	--font-face: 'JetBrains Mono', monospace;
+	--fontSize-base: 1.125rem;
+	--fontSize-medium: 1.5rem;
+	--fontSize-large: 2rem;
+	--fontWeight-base: 500;
+	--fontWeight-bold: 700;
+	--fontWeight-extraBold: 800;
+
+	--spacing-extraSmall: 0.5rem;
+	--spacing-small: 0.875rem;
+	--spacing-base: 1rem;
+	--spacing-medium: 1.25rem;
+	--spacing-large: 1.5rem;
+	--spacing-extraLarge: 1.75rem;
+}
