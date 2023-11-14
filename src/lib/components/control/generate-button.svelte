@@ -20,10 +20,16 @@
 		gap: var(--spacing-medium);
 		font-weight: var(--fontWeight-bold);
 		text-transform: uppercase;
+		transition: 0.3s;
 	}
 
 	button:hover {
 		background-color: var(--color-veryDarkGrey);
 		color: var(--color-neonGreen);
+	}
+
+	button:active {
+		background-color: var(--color-neonGreen);
+		color: var(--color-veryDarkGrey);
 	}
 </style>

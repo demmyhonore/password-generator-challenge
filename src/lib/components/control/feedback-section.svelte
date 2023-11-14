@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import { characterEnabledOptionsStore, characterLengthStore } from '$lib/utils/stores';
 	import { PasswordFeedbackEnum } from '$lib/utils/enum';
 
@@ -41,34 +43,44 @@
 				Strong
 			{/if}
 		</p>
-		<span class="feedback__content__meter" data-type={strength}>
-			{#if strength === PasswordFeedbackEnum.TooWeak}
-				<span class="feedback__content__meter__box" data-type="too-weak" />
-				<span class="feedback__content__meter__box" />
-				<span class="feedback__content__meter__box" />
-				<span class="feedback__content__meter__box" />
-			{:else if strength === PasswordFeedbackEnum.Weak}
-				<span class="feedback__content__meter__box" data-type="weak" />
-				<span class="feedback__content__meter__box" data-type="weak" />
-				<span class="feedback__content__meter__box" />
-				<span class="feedback__content__meter__box" />
-			{:else if strength === PasswordFeedbackEnum.Medium}
-				<span class="feedback__content__meter__box" data-type="medium" />
-				<span class="feedback__content__meter__box" data-type="medium" />
-				<span class="feedback__content__meter__box" data-type="medium" />
-				<span class="feedback__content__meter__box" />
-			{:else}
-				<span class="feedback__content__meter__box" data-type="strong" />
-				<span class="feedback__content__meter__box" data-type="strong" />
-				<span class="feedback__content__meter__box" data-type="strong" />
-				<span class="feedback__content__meter__box" data-type="strong" />
-			{/if}
+		<span class="feedback__content__meter__container">
+			{#key strength}
+				<span
+					class="feedback__content__meter"
+					data-type={strength}
+					transition:fade
+					style="position:absolute"
+				>
+					{#if strength === PasswordFeedbackEnum.TooWeak}
+						<span class="feedback__content__meter__box" data-type="too-weak" />
+						<span class="feedback__content__meter__box" />
+						<span class="feedback__content__meter__box" />
+						<span class="feedback__content__meter__box" />
+					{:else if strength === PasswordFeedbackEnum.Weak}
+						<span class="feedback__content__meter__box" data-type="weak" />
+						<span class="feedback__content__meter__box" data-type="weak" />
+						<span class="feedback__content__meter__box" />
+						<span class="feedback__content__meter__box" />
+					{:else if strength === PasswordFeedbackEnum.Medium}
+						<span class="feedback__content__meter__box" data-type="medium" />
+						<span class="feedback__content__meter__box" data-type="medium" />
+						<span class="feedback__content__meter__box" data-type="medium" />
+						<span class="feedback__content__meter__box" />
+					{:else}
+						<span class="feedback__content__meter__box" data-type="strong" />
+						<span class="feedback__content__meter__box" data-type="strong" />
+						<span class="feedback__content__meter__box" data-type="strong" />
+						<span class="feedback__content__meter__box" data-type="strong" />
+					{/if}
+				</span>
+			{/key}
 		</span>
 	</span>
 </section>
 
 <style>
 	.feedback {
+		min-height: 68px;
 		background-color: var(--color-veryDarkGrey);
 		padding: var(--spacing-base);
 		display: flex;
@@ -106,6 +118,12 @@
 	.feedback__content__meter {
 		display: flex;
 		gap: var(--spacing-extraSmall);
+	}
+
+	.feedback__content__meter__container {
+		position: relative;
+		width: 64px;
+		height: 28px;
 	}
 
 	.feedback__content__meter__box {

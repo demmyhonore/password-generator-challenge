@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import { passwordStore } from '$lib/utils/stores';
 	import { copyToClipboard } from '$lib/utils/utilities';
 
@@ -22,7 +24,7 @@
 
 <div class="copy-action">
 	{#if showFeedback}
-		<p class="copy-action__feedback">Copied!</p>
+		<p transition:fade={{ duration: 250 }} class="copy-action__feedback">Copied!</p>
 	{/if}
 	<button on:click={handleCopy}>
 		<CopyIcon />
@@ -39,10 +41,15 @@
 		font: inherit;
 		cursor: pointer;
 		color: var(--color-neonGreen);
+		transition: 0.3s;
 	}
 
 	button:hover {
 		color: var(--color-white);
+	}
+
+	button:active {
+		color: var(--color-neonGreen);
 	}
 
 	.copy-action {

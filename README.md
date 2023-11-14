@@ -37,7 +37,7 @@ Users should be able to:
 - CSS grid
 - TypeScript
 - Mobile-first workflow
-- [SvelteKit](https://kit.svelte.dev/) (stores, bindings and more)
+- [SvelteKit](https://kit.svelte.dev/) (stores, bindings, animations and more)
 
 ### What I learned
 
